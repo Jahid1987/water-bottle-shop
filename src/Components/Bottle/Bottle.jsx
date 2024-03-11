@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
 import "./Bottle.css";
+import Button from "../Button/Button";
 const Bottle = ({ bottle, setCart }) => {
+  console.log(bottle);
+  const { id, title } = bottle;
   return (
     <div className="card">
-      <h3 onClick={() => setCart([2])}>{bottle.title}</h3>
+      <h3>{title}</h3>
+      <Button id={id} setCart={setCart}>
+        Add to Cart
+      </Button>
     </div>
   );
 };

@@ -1,5 +1,10 @@
 .card {
   padding: 10px;
-  background: #fff;
+  background: #dbdbdbb7;
   border-radius: 4px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-shrink: unset;
 }

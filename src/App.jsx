@@ -6,6 +6,7 @@ import { useEffect } from "react";
 const App = () => {
   const [bottles, setBottles] = useState([]);
   const [cart, setCart] = useState([]);
+
   // fetching data
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/posts")
@@ -13,13 +14,19 @@ const App = () => {
       .then((data) => setBottles(data));
   }, []);
 
+  // handling set card
+  function handleSetCart(id) {
+    if (!cart.includes(id)) {
+      setCart([...cart, id]);
+    }
+  }
   return (
     <>
       <header>
         <Nav cart={cart}></Nav>
       </header>
       <main className="container">
-        <Bottles setCart={setCart} bottles={bottles}></Bottles>
+        <Bottles setCart={handleSetCart} bottles={bottles}></Bottles>
       </main>
       <footer></footer>
     </>
