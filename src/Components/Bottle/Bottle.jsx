@@ -2,12 +2,14 @@ import PropTypes from "prop-types";
 import "./Bottle.css";
 import Button from "../Button/Button";
 const Bottle = ({ bottle, setCart }) => {
-  console.log(bottle);
-  const { id, title } = bottle;
+  // console.log("I am in bottle");
+  const { name, img, price } = bottle;
   return (
     <div className="card">
-      <h3>{title}</h3>
-      <Button id={id} setCart={setCart}>
+      <img className="img" src={img} alt={name} />
+      <h3>{name}</h3>
+      <p>Price: {price}</p>
+      <Button bottle={bottle} setCart={setCart}>
         Add to Cart
       </Button>
     </div>

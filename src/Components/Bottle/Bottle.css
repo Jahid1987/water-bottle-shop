@@ -2,9 +2,15 @@
   padding: 10px;
   background: #dbdbdbb7;
   border-radius: 4px;
-  height: 200px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   flex-shrink: unset;
+  line-height: 2rem;
+  box-shadow: 3px 3px 10px gray;
+}
+.card .img {
+  width: 100%;
+  object-fit: cover;
 }

@@ -3,6 +3,7 @@ import Bottle from "../Bottle/Bottle";
 import "./Bottles.css";
 
 const Bottles = ({ bottles, setCart }) => {
+  // console.log("i am in bottles");
   return (
     <>
       <div className="bottle-container">

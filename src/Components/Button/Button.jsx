@@ -1,16 +1,16 @@
 import PropTypes from "prop-types";
 import "./Button.css";
-const Button = ({ id, setCart, children }) => {
+const Button = ({ bottle, setCart, children }) => {
   return (
     <>
-      <button onClick={() => setCart(id)} className="btn">
+      <button onClick={() => setCart(bottle)} className="btn">
         {children}
       </button>
     </>
   );
 };
 Button.propTypes = {
-  id: PropTypes.number,
+  bottle: PropTypes.object,
   setCart: PropTypes.func,
   children: PropTypes.string,
 };
