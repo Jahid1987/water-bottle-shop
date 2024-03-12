@@ -7,9 +7,11 @@ import {
   getStoredCart,
   saveCartInLocalStorage,
 } from "./utilities/localstorage";
+import Cart from "./Components/Cart/Cart";
 const App = () => {
   const [bottles, setBottles] = useState([]);
   const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
 
   // fetching data
   useEffect(() => {
@@ -46,18 +48,13 @@ const App = () => {
   return (
     <>
       <header>
-        <Nav cart={cart}></Nav>
+        <Nav setShowCart={setShowCart} cart={cart}></Nav>
       </header>
       <main className="container">
-        <div>
-          <h3>Card items</h3>
-          {cart.map((cartItem) => (
-            <p key={cartItem.id}>{cartItem.name}</p>
-          ))}
-        </div>
         <h2>All Products</h2>
         <Bottles setCart={handleSetCart} bottles={bottles}></Bottles>
       </main>
+      {showCart && <Cart setShowCart={setShowCart} cart={cart}></Cart>}
       <footer></footer>
     </>
   );

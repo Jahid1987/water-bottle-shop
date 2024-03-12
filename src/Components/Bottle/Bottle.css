@@ -2,7 +2,8 @@
   padding: 10px;
   background: #dbdbdbb7;
   border-radius: 4px;
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -8,7 +8,7 @@ const Bottle = ({ bottle, setCart }) => {
     <div className="card">
       <img className="img" src={img} alt={name} />
       <h3>{name}</h3>
-      <p>Price: {price}</p>
+      <p>Price: ${price}</p>
       <Button bottle={bottle} setCart={setCart}>
         Add to Cart
       </Button>

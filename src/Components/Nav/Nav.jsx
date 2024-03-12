@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./Nav.css";
 
-const Nav = ({ cart }) => {
+const Nav = ({ cart, setShowCart }) => {
   return (
     <>
       <div className="nav-container">
@@ -9,7 +9,7 @@ const Nav = ({ cart }) => {
           <h3 className="brand-name">Your Bottle</h3>
           <div className="nav-links">
             <ul>
-              <li>
+              <li onClick={() => setShowCart(true)}>
                 <a>
                   Cart <sup>{cart.length}</sup>
                 </a>
@@ -27,5 +27,6 @@ const Nav = ({ cart }) => {
 
 Nav.propTypes = {
   cart: PropTypes.array.isRequired,
+  setShowCart: PropTypes.func.isRequired,
 };
 export default Nav;
