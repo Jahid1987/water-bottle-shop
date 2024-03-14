@@ -4,6 +4,7 @@ import Bottles from "./Components/Bottles/Bottles";
 import Nav from "./Components/Nav/Nav";
 import { useEffect } from "react";
 import {
+  deleteFromLocalStorage,
   getStoredCart,
   saveCartInLocalStorage,
 } from "./utilities/localstorage";
@@ -19,11 +20,6 @@ const App = () => {
     fetch("/bottles.json")
       .then((res) => res.json())
       .then((data) => setBottles(data));
-
-    // // fetching data from remote api (working)
-    // fetch("https://jsonplaceholder.typicode.com/posts")
-    //   .then((response) => response.json())
-    //   .then((data) => setBottles(data));
   }, []);
 
   // handling cart saved in localStorage
@@ -41,10 +37,17 @@ const App = () => {
 
   // handling set cart state and in local storage
   function handleSetCart(bottle) {
-    setCart([...cart, bottle]);
-    saveCartInLocalStorage(bottle.id);
+    const isExist = cart.find((item) => item.id === bottle.id);
+    if (!isExist) {
+      setCart([...cart, bottle]);
+      saveCartInLocalStorage(bottle.id);
+    }
   }
-  // console.log("I am in App");
+
+  function deleteCartItem(id) {
+    setCart(cart.filter((item) => item.id !== id));
+    deleteFromLocalStorage(id);
+  }
   return (
     <>
       <header>
@@ -54,7 +57,13 @@ const App = () => {
         <h2>All Products</h2>
         <Bottles setCart={handleSetCart} bottles={bottles}></Bottles>
       </main>
-      {showCart && <Cart setShowCart={setShowCart} cart={cart}></Cart>}
+      {showCart && (
+        <Cart
+          deleteCartItem={deleteCartItem}
+          setShowCart={setShowCart}
+          cart={cart}
+        ></Cart>
+      )}
       <footer></footer>
     </>
   );

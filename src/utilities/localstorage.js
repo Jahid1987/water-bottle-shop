@@ -16,4 +16,10 @@ function saveCartInLocalStorage(id) {
   setCartInLocalStorage(cart);
 }
 
-export { getStoredCart, saveCartInLocalStorage };
+function deleteFromLocalStorage(id) {
+  const cart = getStoredCart();
+  const newCart = cart.filter((item) => item !== id);
+  setCartInLocalStorage(newCart);
+}
+
+export { getStoredCart, saveCartInLocalStorage, deleteFromLocalStorage };

@@ -1,0 +1,13 @@
+.cart-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  background: whitesmoke;
+  padding: 5px;
+}
+.cart-item .img {
+  width: 80px;
+}
+.cart-item img {
+  width: 100%;
+}
