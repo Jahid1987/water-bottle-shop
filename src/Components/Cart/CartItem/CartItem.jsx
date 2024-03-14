@@ -5,12 +5,17 @@ const CartItem = ({ item, deleteCartItem }) => {
 
   return (
     <>
-      <div onClick={() => deleteCartItem(id)} className="cart-item">
-        <div className="img">
-          <img src={img} alt="" />
+      <div className="cart-item">
+        <div className="cart-content">
+          <div className="img">
+            <img src={img} alt="" />
+          </div>
+          <h3>{name}</h3>
+          <p>﹩{price}</p>
         </div>
-        <h3>{name}</h3>
-        <p>{price}</p>
+        <p className="cart-action" onClick={() => deleteCartItem(id)}>
+          ✕
+        </p>
       </div>
     </>
   );
